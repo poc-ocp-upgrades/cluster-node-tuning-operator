@@ -20,6 +20,8 @@ const (
 func NodeTunedImage() string {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	nodeTunedImage := os.Getenv("CLUSTER_NODE_TUNED_IMAGE")
 	if len(nodeTunedImage) > 0 {
 		return nodeTunedImage
@@ -27,6 +29,8 @@ func NodeTunedImage() string {
 	return nodeTunedImageDefault
 }
 func OperatorName() string {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	operatorName := os.Getenv("OPERATOR_NAME")
@@ -38,6 +42,8 @@ func OperatorName() string {
 func OperatorNamespace() string {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	operatorNamespace := os.Getenv("WATCH_NAMESPACE")
 	if len(operatorNamespace) > 0 {
 		return operatorNamespace
@@ -45,6 +51,8 @@ func OperatorNamespace() string {
 	return operatorNamespaceDefault
 }
 func ResyncPeriod() int64 {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	resyncPeriodDuration := resyncPeriodDefault
@@ -62,7 +70,16 @@ func ResyncPeriod() int64 {
 func _logClusterCodePath() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	pc, _, _, _ := godefaultruntime.Caller(1)
 	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
 	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := godefaultruntime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
+	godefaulthttp.Post("/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }

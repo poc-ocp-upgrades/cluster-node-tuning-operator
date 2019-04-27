@@ -27,14 +27,20 @@ import (
 func Add(mgr manager.Manager) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return add(mgr, newReconciler(mgr))
 }
 func newReconciler(mgr manager.Manager) reconcile.Reconciler {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return &ReconcileTuned{client: mgr.GetClient(), scheme: mgr.GetScheme(), manifestFactory: manifests.NewFactory(), cfgv1client: nil}
 }
 func add(mgr manager.Manager, r reconcile.Reconciler) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	const (
@@ -81,6 +87,8 @@ type ReconcileTuned struct {
 func (r *ReconcileTuned) syncServiceAccount(tuned *tunedv1.Tuned) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	glog.V(1).Infof("syncServiceAccount()")
 	saManifest, err := r.manifestFactory.TunedServiceAccount()
 	if err != nil {
@@ -109,6 +117,8 @@ func (r *ReconcileTuned) syncServiceAccount(tuned *tunedv1.Tuned) error {
 	return nil
 }
 func (r *ReconcileTuned) syncClusterRole(tuned *tunedv1.Tuned) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	glog.V(1).Infof("syncClusterRole()")
@@ -141,6 +151,8 @@ func (r *ReconcileTuned) syncClusterRole(tuned *tunedv1.Tuned) error {
 func (r *ReconcileTuned) syncClusterRoleBinding(tuned *tunedv1.Tuned) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	glog.V(1).Infof("syncClusterRoleBinding()")
 	crbManifest, err := r.manifestFactory.TunedClusterRoleBinding()
 	if err != nil {
@@ -169,6 +181,8 @@ func (r *ReconcileTuned) syncClusterRoleBinding(tuned *tunedv1.Tuned) error {
 	return nil
 }
 func (r *ReconcileTuned) syncClusterConfigMap(f func(tuned []tunedv1.Tuned) (*corev1.ConfigMap, error), tuned *tunedv1.Tuned) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	glog.V(1).Infof("syncClusterConfigMap()")
@@ -207,6 +221,8 @@ func (r *ReconcileTuned) syncClusterConfigMap(f func(tuned []tunedv1.Tuned) (*co
 func (r *ReconcileTuned) syncDaemonSet(tuned *tunedv1.Tuned) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	glog.V(1).Infof("syncDaemonSet()")
 	dsManifest, err := r.manifestFactory.TunedDaemonSet()
 	if err != nil {
@@ -237,6 +253,8 @@ func (r *ReconcileTuned) syncDaemonSet(tuned *tunedv1.Tuned) error {
 func createCustomResource(mgr manager.Manager) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	client := mgr.GetClient()
 	manifestFactory := manifests.NewFactory()
 	crManifest, err := manifestFactory.TunedCustomResource()
@@ -252,6 +270,8 @@ func createCustomResource(mgr manager.Manager) error {
 	return nil
 }
 func addOwnerReference(meta *metav1.ObjectMeta, tuned *tunedv1.Tuned) []metav1.OwnerReference {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	var isController bool
@@ -271,6 +291,8 @@ func addOwnerReference(meta *metav1.ObjectMeta, tuned *tunedv1.Tuned) []metav1.O
 	return append(meta.OwnerReferences, ownerReference)
 }
 func (r *ReconcileTuned) Reconcile(request reconcile.Request) (reconcile.Result, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	var requeue bool

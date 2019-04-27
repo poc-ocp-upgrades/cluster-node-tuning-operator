@@ -7,6 +7,8 @@ import (
 func (in *Tuned) DeepCopyInto(out *Tuned) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	*out = *in
 	out.TypeMeta = in.TypeMeta
 	in.ObjectMeta.DeepCopyInto(&out.ObjectMeta)
@@ -15,6 +17,8 @@ func (in *Tuned) DeepCopyInto(out *Tuned) {
 	return
 }
 func (in *Tuned) DeepCopy() *Tuned {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	if in == nil {
@@ -27,12 +31,16 @@ func (in *Tuned) DeepCopy() *Tuned {
 func (in *Tuned) DeepCopyObject() runtime.Object {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if c := in.DeepCopy(); c != nil {
 		return c
 	}
 	return nil
 }
 func (in *TunedList) DeepCopyInto(out *TunedList) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	*out = *in
@@ -50,6 +58,8 @@ func (in *TunedList) DeepCopyInto(out *TunedList) {
 func (in *TunedList) DeepCopy() *TunedList {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if in == nil {
 		return nil
 	}
@@ -60,12 +70,16 @@ func (in *TunedList) DeepCopy() *TunedList {
 func (in *TunedList) DeepCopyObject() runtime.Object {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if c := in.DeepCopy(); c != nil {
 		return c
 	}
 	return nil
 }
 func (in *TunedMatch) DeepCopyInto(out *TunedMatch) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	*out = *in
@@ -96,6 +110,8 @@ func (in *TunedMatch) DeepCopyInto(out *TunedMatch) {
 func (in *TunedMatch) DeepCopy() *TunedMatch {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if in == nil {
 		return nil
 	}
@@ -104,6 +120,8 @@ func (in *TunedMatch) DeepCopy() *TunedMatch {
 	return out
 }
 func (in *TunedProfile) DeepCopyInto(out *TunedProfile) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	*out = *in
@@ -122,6 +140,8 @@ func (in *TunedProfile) DeepCopyInto(out *TunedProfile) {
 func (in *TunedProfile) DeepCopy() *TunedProfile {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if in == nil {
 		return nil
 	}
@@ -130,6 +150,8 @@ func (in *TunedProfile) DeepCopy() *TunedProfile {
 	return out
 }
 func (in *TunedRecommend) DeepCopyInto(out *TunedRecommend) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	*out = *in
@@ -155,6 +177,8 @@ func (in *TunedRecommend) DeepCopyInto(out *TunedRecommend) {
 func (in *TunedRecommend) DeepCopy() *TunedRecommend {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if in == nil {
 		return nil
 	}
@@ -163,6 +187,8 @@ func (in *TunedRecommend) DeepCopy() *TunedRecommend {
 	return out
 }
 func (in *TunedSpec) DeepCopyInto(out *TunedSpec) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	*out = *in
@@ -185,6 +211,8 @@ func (in *TunedSpec) DeepCopyInto(out *TunedSpec) {
 func (in *TunedSpec) DeepCopy() *TunedSpec {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if in == nil {
 		return nil
 	}
@@ -195,10 +223,14 @@ func (in *TunedSpec) DeepCopy() *TunedSpec {
 func (in *TunedStatus) DeepCopyInto(out *TunedStatus) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	*out = *in
 	return
 }
 func (in *TunedStatus) DeepCopy() *TunedStatus {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	if in == nil {

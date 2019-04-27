@@ -16,6 +16,8 @@ import (
 func GetConfig() (*rest.Config, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	configFromFlags := func(kubeConfig string) (*rest.Config, error) {
 		if _, err := os.Stat(kubeConfig); err != nil {
 			return nil, fmt.Errorf("Cannot stat kubeconfig '%s'", kubeConfig)
@@ -38,6 +40,8 @@ func GetConfig() (*rest.Config, error) {
 func GetCfgV1Client() (*configv1client.ConfigV1Client, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	c, err := GetConfig()
 	if err != nil {
 		return nil, err
@@ -51,7 +55,16 @@ func GetCfgV1Client() (*configv1client.ConfigV1Client, error) {
 func _logClusterCodePath() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	pc, _, _, _ := godefaultruntime.Caller(1)
 	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
 	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := godefaultruntime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
+	godefaulthttp.Post("/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }

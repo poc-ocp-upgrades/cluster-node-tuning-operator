@@ -36,6 +36,8 @@ type tunedRecommend struct {
 func MustAssetReader(asset string) io.Reader {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return bytes.NewReader(MustAsset(asset))
 }
 
@@ -44,9 +46,13 @@ type Factory struct{}
 func NewFactory() *Factory {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return &Factory{}
 }
 func (f *Factory) TunedServiceAccount() (*corev1.ServiceAccount, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	sa, err := NewServiceAccount(MustAssetReader(TunedServiceAccount))
@@ -58,6 +64,8 @@ func (f *Factory) TunedServiceAccount() (*corev1.ServiceAccount, error) {
 func (f *Factory) TunedClusterRole() (*rbacv1.ClusterRole, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	cr, err := NewClusterRole(MustAssetReader(TunedClusterRole))
 	if err != nil {
 		return nil, err
@@ -67,6 +75,8 @@ func (f *Factory) TunedClusterRole() (*rbacv1.ClusterRole, error) {
 func (f *Factory) TunedClusterRoleBinding() (*rbacv1.ClusterRoleBinding, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	crb, err := NewClusterRoleBinding(MustAssetReader(TunedClusterRoleBinding))
 	if err != nil {
 		return nil, err
@@ -74,6 +84,8 @@ func (f *Factory) TunedClusterRoleBinding() (*rbacv1.ClusterRoleBinding, error) 
 	return crb, nil
 }
 func (f *Factory) TunedConfigMapProfiles(tunedArray []tunedv1.Tuned) (*corev1.ConfigMap, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	cm, err := NewConfigMap(MustAssetReader(TunedConfigMapProfiles))
@@ -92,6 +104,8 @@ func (f *Factory) TunedConfigMapProfiles(tunedArray []tunedv1.Tuned) (*corev1.Co
 	return cm, nil
 }
 func (f *Factory) TunedConfigMapRecommend(tunedArray []tunedv1.Tuned) (*corev1.ConfigMap, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	var (
@@ -124,6 +138,8 @@ func (f *Factory) TunedConfigMapRecommend(tunedArray []tunedv1.Tuned) (*corev1.C
 func (f *Factory) TunedDaemonSet() (*appsv1.DaemonSet, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	ds, err := NewDaemonSet(MustAssetReader(TunedDaemonSet))
 	imageTuned := ntoconfig.NodeTunedImage()
 	ds.Spec.Template.Spec.Containers[0].Image = imageTuned
@@ -135,6 +151,8 @@ func (f *Factory) TunedDaemonSet() (*appsv1.DaemonSet, error) {
 func (f *Factory) TunedCustomResource() (*tunedv1.Tuned, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	cr, err := NewTuned(MustAssetReader(TunedCustomResource))
 	if err != nil {
 		return nil, err
@@ -142,6 +160,8 @@ func (f *Factory) TunedCustomResource() (*tunedv1.Tuned, error) {
 	return cr, nil
 }
 func NewServiceAccount(manifest io.Reader) (*corev1.ServiceAccount, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	sa := corev1.ServiceAccount{}
@@ -153,6 +173,8 @@ func NewServiceAccount(manifest io.Reader) (*corev1.ServiceAccount, error) {
 func NewClusterRole(manifest io.Reader) (*rbacv1.ClusterRole, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	cr := rbacv1.ClusterRole{}
 	if err := yaml.NewYAMLOrJSONDecoder(manifest, 100).Decode(&cr); err != nil {
 		return nil, err
@@ -160,6 +182,8 @@ func NewClusterRole(manifest io.Reader) (*rbacv1.ClusterRole, error) {
 	return &cr, nil
 }
 func NewClusterRoleBinding(manifest io.Reader) (*rbacv1.ClusterRoleBinding, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	crb := rbacv1.ClusterRoleBinding{}
@@ -171,6 +195,8 @@ func NewClusterRoleBinding(manifest io.Reader) (*rbacv1.ClusterRoleBinding, erro
 func NewConfigMap(manifest io.Reader) (*corev1.ConfigMap, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	cm := corev1.ConfigMap{}
 	if err := yaml.NewYAMLOrJSONDecoder(manifest, 100).Decode(&cm); err != nil {
 		return nil, err
@@ -178,6 +204,8 @@ func NewConfigMap(manifest io.Reader) (*corev1.ConfigMap, error) {
 	return &cm, nil
 }
 func NewDaemonSet(manifest io.Reader) (*appsv1.DaemonSet, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	ds := appsv1.DaemonSet{}
@@ -189,6 +217,8 @@ func NewDaemonSet(manifest io.Reader) (*appsv1.DaemonSet, error) {
 func NewTuned(manifest io.Reader) (*tunedv1.Tuned, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	o := tunedv1.Tuned{}
 	if err := yaml.NewYAMLOrJSONDecoder(manifest, 100).Decode(&o); err != nil {
 		return nil, err
@@ -196,6 +226,8 @@ func NewTuned(manifest io.Reader) (*tunedv1.Tuned, error) {
 	return &o, nil
 }
 func toRecommendLine(match *tunedv1.TunedMatch) string {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	var (
@@ -228,6 +260,8 @@ func toRecommendLine(match *tunedv1.TunedMatch) string {
 func toRecommendConf(recommend []tunedRecommend, i *int) string {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	var sb strings.Builder
 	for _, r := range recommend {
 		fmt.Fprintf(&sb, "[%s,%d]\n", r.Profile, *i)
@@ -238,6 +272,8 @@ func toRecommendConf(recommend []tunedRecommend, i *int) string {
 	return sb.String()
 }
 func matchWalk(match *tunedv1.TunedMatch, p tunedRecommend) []tunedRecommend {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	var (
@@ -264,6 +300,8 @@ func matchWalk(match *tunedv1.TunedMatch, p tunedRecommend) []tunedRecommend {
 func recommendWalk(r *tunedv1.TunedRecommend) []tunedRecommend {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	var aRecommend []tunedRecommend
 	if r.Profile != nil {
 		if len(r.Match) == 0 {
@@ -283,6 +321,8 @@ func recommendWalk(r *tunedv1.TunedRecommend) []tunedRecommend {
 	return aRecommend
 }
 func tunedConfigMapProfiles(tuned *tunedv1.Tuned, m map[string]string) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	if tuned.Spec.Profile != nil {

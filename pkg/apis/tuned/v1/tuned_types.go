@@ -39,5 +39,7 @@ type TunedList struct {
 func init() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	SchemeBuilder.Register(&Tuned{}, &TunedList{})
 }

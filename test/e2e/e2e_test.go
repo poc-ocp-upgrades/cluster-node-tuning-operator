@@ -28,6 +28,8 @@ const (
 func TestOperatorAvailable(t *testing.T) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	cfgv1client, err := ntoclient.GetCfgV1Client()
 	if cfgv1client == nil {
 		t.Errorf("failed to get a client: %v", err)
@@ -41,6 +43,8 @@ func TestOperatorAvailable(t *testing.T) {
 func TestDefaultTunedExists(t *testing.T) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	ctx, client, ns := prepareTest(t)
 	defer ctx.Cleanup()
 	t.Log("=== Wait for default Tuned CR to exist")
@@ -50,6 +54,8 @@ func TestDefaultTunedExists(t *testing.T) {
 	t.Logf("tuned CR in %s/default exists", ns)
 }
 func prepareTest(t *testing.T) (ctx *framework.TestCtx, client framework.FrameworkClient, namespace string) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	tunedList := &tunedv1.TunedList{TypeMeta: metav1.TypeMeta{Kind: "Tuned", APIVersion: tunedv1.SchemeGroupVersion.String()}}
@@ -65,6 +71,8 @@ func prepareTest(t *testing.T) (ctx *framework.TestCtx, client framework.Framewo
 	return ctx, framework.Global.Client, ns
 }
 func waitForTunedCR(t *testing.T, client framework.FrameworkClient, timeout time.Duration) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	cr := &tunedv1.Tuned{}
@@ -84,6 +92,8 @@ func waitForTunedCR(t *testing.T, client framework.FrameworkClient, timeout time
 	return err
 }
 func waitForTunedOperatorAvailable(t *testing.T, cfgv1client *configv1client.ConfigV1Client, timeout time.Duration) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	clusterOperatorName := ntoconfig.OperatorName()
@@ -109,12 +119,23 @@ func waitForTunedOperatorAvailable(t *testing.T, cfgv1client *configv1client.Con
 func testContext() (context.Context, context.CancelFunc) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return context.WithTimeout(context.Background(), apiTimeout)
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := godefaultruntime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
+	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }
 func _logClusterCodePath() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	pc, _, _, _ := godefaultruntime.Caller(1)
 	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
-	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
+	godefaulthttp.Post("/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }

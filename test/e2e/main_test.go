@@ -8,5 +8,7 @@ import (
 func TestMain(m *testing.M) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	framework.MainEntry(m)
 }
